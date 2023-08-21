@@ -18,12 +18,16 @@ let package = Package(
         .package(
             url: "https://github.com/CombineCommunity/CombineCocoa.git",
             branch: "main"
+        ),
+        .package(
+            url: "https://github.com/CombineCommunity/CombineExt",
+            branch: "main"
         )
     ],
     targets: [
         .target(
             name: "CombinePlus",
-            dependencies: ["CombineCocoa"]
+            dependencies: ["CombineCocoa", "CombineExt"]
         ),
         .testTarget(
             name: "CombinePlusTests",
