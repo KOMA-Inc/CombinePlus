@@ -25,6 +25,14 @@ public extension UIView {
         }
         return longTapGesturePublishers[self]!.eraseToAnyPublisher()
     }
+
+    var bottomSwipeGesturePublisher: AnyPublisher<UISwipeGestureRecognizer, Never> {
+        let swipeGesture = UISwipeGestureRecognizer()
+        swipeGesture.direction = .down
+        isUserInteractionEnabled = true
+        addGestureRecognizer(swipeGesture)
+        return swipeGesture.swipePublisher
+    }
 }
 
 extension UIView: UIGestureRecognizerDelegate {
