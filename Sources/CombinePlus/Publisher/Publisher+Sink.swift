@@ -20,3 +20,22 @@ public extension Publisher where Self.Output == Void {
         }
     }
 }
+
+public extension Publisher {
+    func sink(
+        onFinished: (() -> Void)? = nil,
+        onError: ((Failure) -> Void)? = nil,
+        onValue: ((Output) -> Void)? = nil
+    ) -> AnyCancellable {
+        sink { completion in
+            switch completion {
+            case .finished:
+                onFinished?()
+            case .failure(let error):
+                onError?(error)
+            }
+        } receiveValue: { value in
+            onValue?(value)
+        }
+    }
+}
