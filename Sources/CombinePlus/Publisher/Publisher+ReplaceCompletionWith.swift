@@ -54,7 +54,9 @@ private extension Publishers.ReplaceCompletion {
 
 public extension Publisher {
 
-    func replaceCompletion(with output: Output) -> Publishers.ReplaceCompletion<Self> {
+    func replaceCompletion(with output: Output) -> AnyPublisher<Output, Never> {
         Publishers.ReplaceCompletion(upstream: self, output: output)
+            .replaceError(with: output)
+            .eraseToAnyPublisher()
     }
 }
