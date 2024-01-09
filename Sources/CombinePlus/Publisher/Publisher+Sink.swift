@@ -25,7 +25,8 @@ public extension Publisher {
     func sink(
         onFinished: (() -> Void)? = nil,
         onError: ((Failure) -> Void)? = nil,
-        onValue: ((Output) -> Void)? = nil
+        onValue: ((Output) -> Void)? = nil,
+        onAny: (() -> Void)? = nil
     ) -> AnyCancellable {
         sink { completion in
             switch completion {
@@ -34,7 +35,9 @@ public extension Publisher {
             case .failure(let error):
                 onError?(error)
             }
+            onAny?()
         } receiveValue: { value in
+            onAny?()
             onValue?(value)
         }
     }
