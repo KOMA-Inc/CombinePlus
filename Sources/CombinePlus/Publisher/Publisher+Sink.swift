@@ -26,7 +26,8 @@ public extension Publisher {
         onFinished: (() -> Void)? = nil,
         onError: ((Failure) -> Void)? = nil,
         onValue: ((Output) -> Void)? = nil,
-        onAny: (() -> Void)? = nil
+        onAny: (() -> Void)? = nil,
+        onAnyCompetition: (() -> Void)? = nil
     ) -> AnyCancellable {
         sink { completion in
             switch completion {
@@ -36,6 +37,7 @@ public extension Publisher {
                 onError?(error)
             }
             onAny?()
+            onAnyCompetition?()
         } receiveValue: { value in
             onAny?()
             onValue?(value)
