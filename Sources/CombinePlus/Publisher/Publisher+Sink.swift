@@ -37,7 +37,6 @@ public extension Publisher {
             }
             onAny?()
         } receiveValue: { value in
-            onAny?()
             onValue?(value)
         }
     }
