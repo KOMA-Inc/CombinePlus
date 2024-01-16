@@ -25,9 +25,14 @@ let package = Package(
         )
     ],
     targets: [
+        .target(name: "COpenCombineHelpers"),
         .target(
             name: "CombinePlus",
-            dependencies: ["CombineCocoa", "CombineExt"]
+            dependencies: [
+                "CombineCocoa",
+                "CombineExt",
+                "COpenCombineHelpers"
+            ]
         ),
         .testTarget(
             name: "CombinePlusTests",
