@@ -13,6 +13,10 @@ let package = Package(
             name: "CombinePlus",
             targets: ["CombinePlus"]
         ),
+        .library(
+            name: "FirestoreCombine",
+            targets: ["FirestoreCombine"]
+        )
     ],
     dependencies: [
         .package(
