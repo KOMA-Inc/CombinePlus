@@ -22,6 +22,10 @@ let package = Package(
         .package(
             url: "https://github.com/CombineCommunity/CombineExt",
             branch: "main"
+        ),
+        .package(
+            url: "https://github.com/firebase/firebase-ios-sdk.git",
+            from: "10.25.0"
         )
     ],
     targets: [
@@ -32,6 +36,12 @@ let package = Package(
                 "CombineCocoa",
                 "CombineExt",
                 "COpenCombineHelpers"
+            ]
+        ),
+        .target(
+            name: "FirestoreCombine",
+            dependencies: [
+                .product(name: "FirebaseFirestore", package: "firebase-ios-sdk")
             ]
         ),
         .testTarget(
