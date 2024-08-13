@@ -21,11 +21,11 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/CombineCommunity/CombineCocoa.git",
-            branch: "main"
+            from: "0.4.1"
         ),
         .package(
             url: "https://github.com/CombineCommunity/CombineExt",
-            branch: "main"
+            from: "1.8.1"
         ),
         .package(
             url: "https://github.com/firebase/firebase-ios-sdk.git",
