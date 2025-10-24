@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "CombinePlus",
     platforms: [
-        .iOS(.v13),
+        .iOS(.v15),
     ],
     products: [
         .library(
@@ -29,7 +29,7 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/firebase/firebase-ios-sdk.git",
-            from: "11.3.0"
+            from: "12.4.0"
         )
     ],
     targets: [

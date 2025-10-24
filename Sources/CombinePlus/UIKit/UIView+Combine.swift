@@ -35,7 +35,7 @@ public extension UIView {
     }
 }
 
-extension UIView: UIGestureRecognizerDelegate {
+extension UIView: @retroactive UIGestureRecognizerDelegate {
     @objc final func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
         longTapGesturePublishers[self]?.send(gestureReconizer.state)
     }
